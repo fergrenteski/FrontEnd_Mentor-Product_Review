@@ -6,7 +6,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
 }
 
@@ -21,43 +21,54 @@ body {
 
 /* TIPOGRAFIA */
 
-.btn { 
+.btn {
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     outline: none;
-    color: white;
 }
 
 .btn a {
-    background-color: #1A4031;
+    background-color: #3D8268;
     width: 100%;
     padding: 1rem 3rem;
     text-decoration: none;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn a:hover {
+    transform: scale(.95);
+    transition-duration: .2s;
+}
+
+a span {
+    padding-left: .5rem;
 }
 
 .discount-price {
-    color: #184131;
+    color: #3D8268;
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-align: start;
 }
 
 .normal-price {
     color: #909194;
-    text-decoration:line-through;
+    text-decoration: line-through;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     font-size: .8rem;
 }
 
 h2 {
-    padding-top: 1.5rem;
+    padding-top: 2.3rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     letter-spacing: 4px;
@@ -67,31 +78,43 @@ h2 {
 }
 
 h1 {
-    padding-top: 1rem;
+    padding-top: 2rem;
+    font-size: 2.5rem;
     font-family: 'Fraunces', serif;
     font-weight: 700;
+    line-height: 2.5rem;
 }
 
 p {
-    padding-top: 1rem;
+    padding-top: 2.7rem;
     font-family: 'Montserrat', sans-serif;
     color: #909194;
-    font-size: .85rem;
+    font-size: 1rem;
     line-height: 1.4rem;
 }
 
-.right ul {
-    display: inline-flex;
+.right .prices {
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding-top: 2rem;
     padding-bottom: 1.875rem;
-    width: 100%;
     justify-content: flex-start;
     gap: 1.5rem;
     align-items: center;
 }
 
-/* CONTAINERS */
+.right .btn-itens {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* CONTAINERS e IMAGENS*/
 
 .container {
     display: grid;
@@ -100,32 +123,121 @@ p {
     width: 100%;
     max-width: 600px;
     max-height: 450px;
-    border-radius: 10px;
-    background-color: white;
+    height: 450px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.img-desktop {
+    border-radius: 15px 0 0 15px;
+    width: 100%;
+    max-width: 100%;
+    -webkit-transition: -webkit-transform .5s;
+    transition: transform .5s;
+}
+
+.img-desktop:hover {
+    border-radius: 15px 0 0 15px;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.left {
+    overflow: hidden;
+    border-radius: 15px 0 0 15px;
 }
 
 .right {
     padding: 0 2rem;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+
 }
 
-div img {
-    max-width: 100%;
-    border-radius: 10px 0 0 10px;
+.img-mobile {
+    display: none;
 }
 
 /* MEDIA QUERY */
 
 
 @media screen and (max-width:600px) {
-    .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        width: 80%;
+    body {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: -25% auto;
     }
 
-    div img {
+    .container {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        width: 80%;
+        padding: 0 0 0 0;
+    }
+
+    .right {
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .img-mobile {
+        display: block;
+        width: 100%;
+        -webkit-transition: -webkit-transform .5s;
+        transition: transform .5s;
+    }
+
+    .img-mobile:hover {
+        border-radius: 15px 15px 0 0;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    .img-desktop {
+        display: none;
+    }
+
+    .left {
         border-radius: 10px 10px 0 0;
     }
+
+    .left img {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .btn {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        padding-bottom: 2rem;
+    }
+
+    .btn a {
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (max-width:250px){
+    h1 {
+        font-size: 2rem;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: .6rem;
+    }
+
+    p {
+        font-size: .7rem;
+    }
+
+    .btn-itens li {
+        font-size: .6rem;
+    }
+    
 }
